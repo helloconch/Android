@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.android.testing.mvp.MVPActivity;
+import com.android.mvp.MVPActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;

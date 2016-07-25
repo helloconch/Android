@@ -15,7 +15,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".mvp.MVPActivity" />
+        <activity android:name="com.android.mvp.MVPActivity" />
     </application>
 
 </manifest>
