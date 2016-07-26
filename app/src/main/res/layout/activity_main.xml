@@ -18,9 +18,10 @@
         android:text="mvp" />
 
     <Button
+        android:id="@+id/btnHttps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AA" />
+        android:text="https" />
 
     <Button
         android:layout_width="wrap_content"

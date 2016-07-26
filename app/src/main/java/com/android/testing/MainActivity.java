@@ -3,7 +3,9 @@ package com.android.testing;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
+import com.android.https.HttpsActivity;
 import com.android.mvp.MVPActivity;
 
 import butterknife.ButterKnife;
@@ -19,8 +21,16 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.btnMVP)
-    public void onClick() {
-        startActivity(new Intent(MainActivity.this, MVPActivity.class));
+
+    @OnClick({R.id.btnMVP, R.id.btnHttps})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btnMVP:
+                startActivity(new Intent(MainActivity.this, MVPActivity.class));
+                break;
+            case R.id.btnHttps:
+                startActivity(new Intent(MainActivity.this, HttpsActivity.class));
+                break;
+        }
     }
 }
