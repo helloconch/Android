@@ -52,8 +52,16 @@ dependencies {
 Vollery
 添加Vollery Module
 app项目进行module Dependence
-
 对App对应的Application添加请求队列
+
+
+Retrofit
+app/build.gradle
+dependencies {
+    //retrofit
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+}
 
 
 ```
