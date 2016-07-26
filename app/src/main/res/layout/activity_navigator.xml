@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <com.android.testing.widget.navigation.PagerSlidingTabStrip
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/background_tabs">
+
+    </com.android.testing.widget.navigation.PagerSlidingTabStrip>
+
+
+    <com.android.testing.widget.navigation.SlideTabView
+        android:id="@+id/slideTabs"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white">
+
+    </com.android.testing.widget.navigation.SlideTabView>
+</LinearLayout>

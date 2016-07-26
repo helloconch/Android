@@ -24,9 +24,10 @@
         android:text="https" />
 
     <Button
+        android:id="@+id/btnNavigator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AA" />
+        android:text="navigator" />
 
     <Button
         android:layout_width="wrap_content"

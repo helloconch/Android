@@ -19,6 +19,7 @@
         </activity>
         <activity android:name="com.android.mvp.MVPActivity" />
         <activity android:name="com.android.https.HttpsActivity" />
+        <activity android:name="com.android.navigator.NavigatorActivity"/>
     </application>
 
 </manifest>
