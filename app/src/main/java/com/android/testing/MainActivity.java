@@ -8,6 +8,7 @@ import android.view.View;
 import com.android.https.HttpsActivity;
 import com.android.mvp.MVPActivity;
 import com.android.navigator.NavigatorActivity;
+import com.android.network.MarsActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.btnMVP, R.id.btnHttps,R.id.btnNavigator})
+    @OnClick({R.id.btnMVP, R.id.btnHttps,R.id.btnNavigator,R.id.btnNetWork})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnMVP:
@@ -34,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btnNavigator:
                 startActivity(new Intent(MainActivity.this, NavigatorActivity.class));
+                break;
+            case R.id.btnNetWork:
+                startActivity(new Intent(MainActivity.this, MarsActivity.class));
                 break;
         }
     }

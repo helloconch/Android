@@ -30,9 +30,10 @@
         android:text="navigator" />
 
     <Button
+        android:id="@+id/btnNetWork"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AA" />
+        android:text="network" />
 
     <Button
         android:layout_width="wrap_content"

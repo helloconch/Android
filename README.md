@@ -47,5 +47,15 @@ dependencies {
 ######基础MVP
 ######Https
 ######自定义水平导航条
+######网络请求(Retrofit/Volley)
+```
+Vollery
+添加Vollery Module
+app项目进行module Dependence
+
+对App对应的Application添加请求队列
+
+
+```
 ```
 ```
