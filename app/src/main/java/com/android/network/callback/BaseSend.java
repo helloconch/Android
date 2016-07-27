@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.widget.ImageView;
 
 import com.android.network.model.MarsBean;
+import com.android.network.model.MarsJson;
 import com.android.testing.App;
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -13,6 +14,11 @@ import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * 网络请求
@@ -25,6 +31,9 @@ public class BaseSend implements ISend {
         if (netRequestType == NetRequestType.VOLLEY) {
             loadMarsDataByVolley(callback);
         }
+        if (netRequestType == NetRequestType.RETROFIT) {
+            loadMarsDataByRetrofit(callback);
+        }
 
     }
 
@@ -34,6 +43,34 @@ public class BaseSend implements ISend {
             loadImgByVolley(callback);
         }
     }
+
+
+    private void loadMarsDataByRetrofit(final SendCallback callback) {
+
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(BaseSendUrls.RECENT_API_ENDPOINT).addConverterFactory(GsonConverterFactory.create()).build();
+
+        IRetrofit r = retrofit.create(IRetrofit.class);
+
+        Call<MarsJson> call = r.marsData();
+
+        call.enqueue(new Callback<MarsJson>() {
+            @Override
+            public void onResponse(Call<MarsJson> call, retrofit2.Response<MarsJson> response) {
+
+                MarsJson marsJson = response.body();
+
+                callback.onSuccessed(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<MarsJson> call, Throwable t) {
+                callback.onError(t.getMessage());
+            }
+        });
+
+
+    }
+
 
     /**
      * 使用Volley进行数据获取
