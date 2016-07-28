@@ -34,8 +34,12 @@ public class CallTelActivity extends AppCompatActivity {
 
         //检查权限
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-
+//            ActivityCompat.requestPermissions(CallTelActivity.this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CODE);
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CALL_PHONE)) {
+                //没有权限，申请权限
+                ActivityCompat.requestPermissions(CallTelActivity.this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CODE);
+            } else {
+                //用户点击不在提示权限框
                 new AlertDialog.Builder(this).setMessage("app需要开启权限才能使用此功能").setPositiveButton("设置", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -44,10 +48,6 @@ public class CallTelActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 }).setNegativeButton("取消", null).create().show();
-            } else {
-
-                //没有权限，申请权限
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CODE);
             }
 
         } else {

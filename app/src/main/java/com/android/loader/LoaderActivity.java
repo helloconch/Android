@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.LoaderManager;
@@ -21,6 +22,7 @@ import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
 
 import com.android.testing.R;
 
@@ -77,6 +79,20 @@ public class LoaderActivity extends AppCompatActivity implements LoaderManager.L
 
         } else {
             initLoaderManager();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_CODE:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    initLoaderManager();
+                } else {
+                    //用户拒绝了授权
+                    Toast.makeText(getBaseContext(), "Permission Denied", Toast.LENGTH_SHORT).show();
+                }
+                break;
         }
     }
 
