@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.android.testing"
-        minSdkVersion 9
+        minSdkVersion 11
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
@@ -34,4 +34,5 @@ dependencies {
     //retrofit
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile project(':app.lib')
 }

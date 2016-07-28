@@ -10,12 +10,12 @@ import java.io.File;
  * 用于操作读写缓存数据，并判断缓存数据是否过期
  */
 public class CacheManager {
-
+    private static final String APP_NAME = "androidapp";
     /**
      * 缓存文件路径
      */
     public static final String APP_CACHE_PATH = Environment.getExternalStorageDirectory()
-            .getPath() + File.separator + "BasicApp" + File.separator + "appdata" + File.separator;
+            .getPath() + File.separator + APP_NAME + File.separator + "appdata" + File.separator;
 
     /**
      * sdcard 最小空间，如果小于10M，不会再向sdcard里面写入任何数据

@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
 
+import com.android.app.lib.cache.CacheManager;
 import com.android.testing.exception.CrashHandler;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -24,6 +25,7 @@ public class App extends Application {
         super.attachBaseContext(base);
         //在代码中加入multidex功能
         MultiDex.install(this);
+        CacheManager.getInstance().initCacheDir();
     }
 
     @Override

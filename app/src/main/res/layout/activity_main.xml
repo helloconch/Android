@@ -36,22 +36,32 @@
         android:text="network" />
 
     <Button
+        android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AA" />
+        android:text="login" />
 
     <Button
+        android:id="@+id/loader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AA" />
+        android:text="loader" />
 
     <Button
+        android:id="@+id/calltel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AA" />
+        android:text="calltel" />
 
     <Button
+        android:id="@+id/webView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AA" />
+        android:text="webview" />
+
+    <Button
+        android:id="@+id/movieWebView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="movie webview" />
 </LinearLayout>
