@@ -81,7 +81,6 @@ public class IndicatorProgressBar extends ProgressBar {
             int height = getHeight();
             int textSize = height - 10;
             mTextPaint.setTextSize(textSize);
-            //边界宽度
             double current = getProgress();
             int x = (int) ((current / 100) * width / 2);
             int y = height - (height - textSize) / 2 - offset;
