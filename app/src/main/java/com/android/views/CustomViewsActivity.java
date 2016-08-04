@@ -21,7 +21,7 @@ public class CustomViewsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_step_view);
+        setContentView(R.layout.activity_custom_view);
         horizontalStepView = (HorizontalStepView) findViewById(R.id.horizontalStepView);
         List<String> datas = new ArrayList<>();
         datas.add("周一");

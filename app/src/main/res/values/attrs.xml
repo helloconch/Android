@@ -15,5 +15,13 @@
         <attr name="pstsTextAllCaps" format="boolean" />
     </declare-styleable>
 
+    <declare-styleable name="IndicatorProgressBar">
+        <attr name="textColor" format="color" />
+        <!--指示器-->
+        <attr name="indicatorIcon" format="integer" />
+        <!--内容-->
+        <attr name="content" format="string" />
+    </declare-styleable>
+
 
 </resources>

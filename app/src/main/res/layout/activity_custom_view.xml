@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000"
@@ -9,6 +10,27 @@
         android:id="@+id/horizontalStepView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center" />
+        android:layout_marginTop="10dp" />
+
+
+    <!--自定义进度条-->
+
+    <!--<com.android.testing.widget.progressbar.IndicatorProgressBar-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:max="100"-->
+    <!--android:progress="40"-->
+    <!--android:progressDrawable="@drawable/my_progressbar"-->
+    <!--android:secondaryProgress="70"-->
+    <!--app:textColor="#fff" />-->
+    <com.android.testing.widget.progressbar.IndicatorProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_marginTop="10dp"
+        android:max="100"
+        android:progress="40"
+        android:progressDrawable="@drawable/my_progressbar"
+        app:textColor="#fff" />
 
 </LinearLayout>

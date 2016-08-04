@@ -11,8 +11,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.miercnnew.app.R;
-import com.miercnnew.utils.AppSizeUtils;
+import com.android.testing.R;
+import com.android.testing.utils.AppUtils;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class HorizontalStepView extends LinearLayout implements HorizontalStepsViewIndicator.OnDrawIndicatorListener {
 
-
+    private Context mContext;
     private LinearLayout mTextContainer;
     private HorizontalStepsViewIndicator mStepsViewIndicator;
     private List<String> mTexts;
@@ -33,11 +33,11 @@ public class HorizontalStepView extends LinearLayout implements HorizontalStepsV
 
     public HorizontalStepView(Context context) {
         this(context, null);
-        init();
     }
 
     public HorizontalStepView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.mContext = context;
         init();
     }
 
@@ -192,7 +192,7 @@ public class HorizontalStepView extends LinearLayout implements HorizontalStepsV
 
         int left = (int) (complectedXPosition.get(0) - mStepsViewIndicator.getCircleRadius() / 2);
         if (mTexts != null && mTexts.size() > 0) {
-            int width = ((AppSizeUtils.getWidthPixels() - left * 2) / (mTexts.size() - 1));
+            int width = ((AppUtils.getScreenDisplayMetrics(mContext).widthPixels - left * 2) / (mTexts.size() - 1));
             for (int i = 0; i < mTexts.size(); i++) {
 
                 if (isHasText) {

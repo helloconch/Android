@@ -12,6 +12,7 @@ import com.android.login.LoginActivity;
 import com.android.mvp.MVPActivity;
 import com.android.navigator.NavigatorActivity;
 import com.android.network.MarsActivity;
+import com.android.views.CustomViewsActivity;
 import com.android.webview.MovieActivity;
 import com.android.webview.WebActivity;
 
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     @OnClick({R.id.btnMVP, R.id.btnHttps, R.id.btnNavigator, R.id.btnNetWork, R.id.loader, R.id.login,
-            R.id.calltel, R.id.webView, R.id.movieWebView})
+            R.id.calltel, R.id.webView, R.id.movieWebView, R.id.customViews})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnMVP:
@@ -59,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.webView:
                 startActivity(new Intent(MainActivity.this, WebActivity.class));
+                break;
+            case R.id.customViews:
+                startActivity(new Intent(MainActivity.this, CustomViewsActivity.class));
                 break;
         }
     }

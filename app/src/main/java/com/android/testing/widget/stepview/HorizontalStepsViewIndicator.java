@@ -13,8 +13,8 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 
-import com.miercnnew.app.R;
-import com.miercnnew.utils.DataTools;
+import com.android.testing.R;
+import com.android.testing.utils.AppUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -107,7 +107,7 @@ public class HorizontalStepsViewIndicator extends View {
      * init
      */
     private void init(Context context) {
-        mAwareIconSize = DataTools.dip2px(context, 20);
+        mAwareIconSize = AppUtils.dip2px(context, 20);
         mPath = new Path();
         mEffects = new DashPathEffect(new float[]{8, 8, 8, 8}, 1);
 
