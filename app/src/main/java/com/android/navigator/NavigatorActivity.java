@@ -38,7 +38,7 @@ public class NavigatorActivity extends AppCompatActivity {
         }
 
 
-        String items[] = new String[]{"全部", "待付款", "待收货", "已完成", "待评价"};
+        String items[] = new String[]{"全部", "待付款", "待收货", "已完成", "待评价","待收货1", "已完成1", "待评价1"};
         slideTabs.addTextTab(items);
 
     }

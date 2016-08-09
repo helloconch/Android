@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Build;
@@ -29,10 +28,6 @@ import java.util.Locale;
  * 滑动View
  */
 public class SlideTabView extends HorizontalScrollView {
-    private static final int[] ATTRS = new int[]{
-            android.R.attr.textSize,
-            android.R.attr.textColor
-    };
 
     //默认
     private LinearLayout.LayoutParams defaultTabLayoutParams;
@@ -51,9 +46,7 @@ public class SlideTabView extends HorizontalScrollView {
     //分割线画笔
     private Paint dividerPaint;
     //指示器颜色
-    private int indicatorClolor = 0xFF666666;
-    //底部线条颜色
-    private int underlineColor = 0x1A000000;
+    private int underlineColor = 0xFF666666;
     //分割线颜色
     private int dividerColor = 0x1A000000;
     //是否展开
@@ -73,7 +66,7 @@ public class SlideTabView extends HorizontalScrollView {
     //分割线内边距
     private int dividerPadding = 12;
     //标签内边距
-    private int tabPadding = 0;
+    private int tabPadding = 24;
     //分割线宽度
     private int dividerWidth = 1;
     //标签页字体大小
@@ -81,7 +74,7 @@ public class SlideTabView extends HorizontalScrollView {
     //标签页字体颜色
     private int tabTextColor = 0xFF666666;
     //标签页选中颜色
-    private String tabSelectColor = "#f5b230";
+    private int tabSelectColor;
     //标签字体
     private Typeface tabTypeface = null;
     //标签字体样式
@@ -125,9 +118,12 @@ public class SlideTabView extends HorizontalScrollView {
         tabPadding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, tabPadding, dm);
         dividerWidth = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dividerWidth, dm);
         tabTextSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, tabTextSize, dm);
-        TypedArray a = context.obtainStyledAttributes(attrs, ATTRS);
-        tabTextSize = a.getDimensionPixelSize(0, tabTextSize);
-        tabTextColor = a.getColor(1, tabTextColor);
+
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.slideTagViewStyleable);
+        drawUnderline = a.getBoolean(R.styleable.slideTagViewStyleable_drawUnderline, true);
+        underlineColor = a.getColor(R.styleable.slideTagViewStyleable_underLineColor, underlineColor);
+        tabTextColor = a.getColor(R.styleable.slideTagViewStyleable_tabTextColor, tabTextColor);
+        tabSelectColor = a.getColor(R.styleable.slideTagViewStyleable_tabSelectColor, tabTextColor);
         a.recycle();
 
         rectPaint = new Paint();
@@ -157,7 +153,7 @@ public class SlideTabView extends HorizontalScrollView {
         for (int i = 0; i < items.length; i++) {
             TextView tab = new TextView(getContext());
             if (i == this.currentPosition) {
-                tab.setTextColor(Color.parseColor(tabSelectColor));
+                tab.setTextColor(tabSelectColor);
             }
             tab.setText(items[i]);
             tab.setGravity(Gravity.CENTER);
@@ -182,7 +178,7 @@ public class SlideTabView extends HorizontalScrollView {
      * @param resId
      */
     public void setIndicatorColorResource(int resId) {
-        this.indicatorClolor = getResources().getColor(resId);
+        this.underlineColor = getResources().getColor(resId);
         invalidate();
     }
 
@@ -284,7 +280,7 @@ public class SlideTabView extends HorizontalScrollView {
         final int height = getHeight();
 
         //开始绘制指示器
-        rectPaint.setColor(Color.parseColor(tabSelectColor));
+        rectPaint.setColor(tabSelectColor);
 
         //在当前选中位置处画线
         View currentTab = tabsContainer.getChildAt(currentPosition);
@@ -302,12 +298,13 @@ public class SlideTabView extends HorizontalScrollView {
             lineRight = (currentPositionOffset * nextTabRight + (1f - currentPositionOffset) * lineRight);
         }
 
-        canvas.drawRect(lineLeft, height - indicatorHeight, lineRight, height, rectPaint);
 
         // 绘制底部线条
         if (drawUnderline) {
             rectPaint.setColor(underlineColor);
-            canvas.drawRect(0, height - underlineHeight, tabsContainer.getWidth(), height, rectPaint);
+//            canvas.drawRect(0, height - underlineHeight, tabsContainer.getWidth(), height, rectPaint);
+            canvas.drawRect(lineLeft, height - indicatorHeight, lineRight, height, rectPaint);
+
         }
 
         //绘制分割线条
