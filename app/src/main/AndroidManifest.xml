@@ -32,8 +32,10 @@
         <activity android:name="com.android.loader.LoaderActivity" />
         <activity android:name="com.android.calltele.CallTelActivity" />
         <activity android:name="com.android.webview.WebActivity" />
-        <activity android:name="com.android.webview.MovieActivity"/>
-        <activity android:name="com.android.views.CustomViewsActivity"/>
+        <activity android:name="com.android.webview.MovieActivity" />
+        <activity android:name="com.android.views.CustomViewsActivity" />
+        <activity android:name="com.android.launchmode.LaunchA" />
+        <activity android:name="com.android.launchmode.LaunchB" />
     </application>
 
 </manifest>

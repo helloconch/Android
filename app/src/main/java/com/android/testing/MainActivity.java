@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.android.calltele.CallTelActivity;
 import com.android.https.HttpsActivity;
+import com.android.launchmode.LaunchA;
 import com.android.loader.LoaderActivity;
 import com.android.login.LoginActivity;
 import com.android.mvp.MVPActivity;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     @OnClick({R.id.btnMVP, R.id.btnHttps, R.id.btnNavigator, R.id.btnNetWork, R.id.loader, R.id.login,
-            R.id.calltel, R.id.webView, R.id.movieWebView, R.id.customViews})
+            R.id.calltel, R.id.webView, R.id.movieWebView, R.id.customViews, R.id.launchMode})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnMVP:
@@ -63,6 +64,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.customViews:
                 startActivity(new Intent(MainActivity.this, CustomViewsActivity.class));
+                break;
+            case R.id.launchMode:
+                startActivity(new Intent(MainActivity.this, LaunchA.class));
                 break;
         }
     }
