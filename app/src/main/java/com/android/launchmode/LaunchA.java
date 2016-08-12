@@ -1,5 +1,7 @@
 package com.android.launchmode;
 
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -7,11 +9,15 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.util.SparseIntArray;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.testing.R;
 
 import java.lang.ref.WeakReference;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -20,7 +26,13 @@ import butterknife.OnClick;
  */
 public class LaunchA extends AppCompatActivity {
     private final String TAG = LaunchA.class.getSimpleName();
+    @BindView(R.id.headResult)
+    TextView headResult;
+    @BindView(R.id.memoryResult)
+    TextView memoryResult;
     private MyHandler myHandler = new MyHandler(this);
+
+    SparseIntArray sparseIntArray = new SparseIntArray(10);
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,6 +41,17 @@ public class LaunchA extends AppCompatActivity {
         setContentView(R.layout.activity_launcher_mode_a);
         ButterKnife.bind(this);
         myHandler.postDelayed(sRunnable, 1000 * 60 * 10);
+
+        //分析内存使用情况
+        ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        int memoryClass = activityManager.getMemoryClass();
+        headResult.setText("可使用的内存上限，被称为堆大小:" + memoryClass);
+
+        //查看每个应用程序最高可用内存：
+        int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024 / 1024);
+        memoryResult.setText("Max memory is " + maxMemory + "MB");
+
+
     }
 
     @Override
@@ -77,6 +100,15 @@ public class LaunchA extends AppCompatActivity {
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         Log.i(TAG, "onRestoreInstanceState");
+    }
+
+
+    @Override
+    public void onTrimMemory(int level) {
+        super.onTrimMemory(level);
+        if (level == TRIM_MEMORY_UI_HIDDEN) {
+            Toast.makeText(LaunchA.this, "用户离开应用", Toast.LENGTH_LONG).show();
+        }
     }
 
     @OnClick(R.id.test)

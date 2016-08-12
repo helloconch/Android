@@ -36,6 +36,7 @@
         <activity android:name="com.android.views.CustomViewsActivity" />
         <activity android:name="com.android.launchmode.LaunchA" />
         <activity android:name="com.android.launchmode.LaunchB" />
+        <activity android:name="com.android.btimap.BitmapActivity" />
     </application>
 
 </manifest>

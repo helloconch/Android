@@ -1,9 +1,12 @@
 package com.android.app.lib.utils;
 
 
+import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
 
 import com.android.app.lib.net.HttpRequest;
 
@@ -209,6 +212,94 @@ public class BaseUtils {
 
     public static final Date getServerTime() {
         return HttpRequest.getServerTime();
+    }
+
+
+//******************************单位换算********************************
+
+    /**
+     * 获取屏幕宽高
+     */
+    public static DisplayMetrics getScreenDisplayMetrics(Context context) {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+        return displayMetrics;
+    }
+
+    /**
+     * dip转为 px
+     */
+    public static int dip2px(Context context, float dipValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dipValue * scale + 0.5f);
+    }
+
+    /**
+     * px 转为 dip
+     */
+    public static int px2dip(Context context, float pxValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (pxValue / scale + 0.5f);
+    }
+
+    /**
+     * 将sp值转换为px值，保证文字大小不变
+     *
+     * @param spValue （DisplayMetrics类中属性scaledDensity）
+     * @return
+     */
+    public static int sp2px(Context context, float spValue) {
+        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
+        return (int) (spValue * fontScale + 0.5f);
+    }
+
+    /**
+     * 将px值转换为sp值，保证文字大小不变
+     *
+     * @param pxValue
+     * @param pxValue （DisplayMetrics类中属性scaledDensity）
+     * @return
+     */
+    public static int px2sp(Context context, float pxValue) {
+        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
+        return (int) (pxValue / fontScale + 0.5f);
+    }
+
+
+    //******************************设备尺寸********************************
+
+    /**
+     * 获取设备尺寸
+     *
+     * @param context
+     * @return
+     */
+    public static int[] getScreenWithAndHeight(Context context) {
+        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics dm = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(dm);
+        return new int[]{dm.widthPixels, dm.heightPixels};
+    }
+
+    /**
+     * @param actualWidth   图片实际的宽度，也就是options.outWidth
+     * @param actualHeight  图片实际的高度，也就是options.outHeight
+     * @param desiredWidth  你希望图片压缩成为的目的宽度
+     * @param desiredHeight 你希望图片压缩成为的目的高度
+     * @return
+     */
+    public static int findBestSampleSize(int actualWidth, int actualHeight, int desiredWidth, int desiredHeight) {
+        double wr = (double) actualWidth / desiredWidth;
+        double hr = (double) actualHeight / desiredHeight;
+        double ratio = Math.min(wr, hr);
+        float n = 1.0f;
+        //这里我们为什么要寻找 与ratio最接近的2的倍数呢？
+        //原因就在于API中对于inSimpleSize的注释：最终的inSimpleSize应该为2的倍数，我们应该向上取与压缩比最接近的2的倍数。
+        while ((n * 2) <= ratio) {
+            n *= 2;
+        }
+        return (int) n;
     }
 
 }

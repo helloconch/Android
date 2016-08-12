@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.android.btimap.BitmapActivity;
 import com.android.calltele.CallTelActivity;
 import com.android.https.HttpsActivity;
 import com.android.launchmode.LaunchA;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     @OnClick({R.id.btnMVP, R.id.btnHttps, R.id.btnNavigator, R.id.btnNetWork, R.id.loader, R.id.login,
-            R.id.calltel, R.id.webView, R.id.movieWebView, R.id.customViews, R.id.launchMode})
+            R.id.calltel, R.id.webView, R.id.movieWebView, R.id.customViews, R.id.launchMode, R.id.bitmap})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnMVP:
@@ -67,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.launchMode:
                 startActivity(new Intent(MainActivity.this, LaunchA.class));
+                break;
+            case R.id.bitmap:
+                startActivity(new Intent(MainActivity.this, BitmapActivity.class));
                 break;
         }
     }

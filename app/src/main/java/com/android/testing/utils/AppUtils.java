@@ -1,62 +1,71 @@
 package com.android.testing.utils;
 
 import android.content.Context;
-import android.util.DisplayMetrics;
-import android.view.WindowManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import com.android.app.lib.utils.BaseUtils;
+
+import java.io.InputStream;
 
 /**
  * Created by cheyanxu on 16/8/3.
  */
 public class AppUtils extends BaseUtils {
     /**
-     * 获取屏幕宽高
-     */
-    public static DisplayMetrics getScreenDisplayMetrics(Context context) {
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-        return displayMetrics;
-    }
-
-    /**
-     * dip转为 px
-     */
-    public static int dip2px(Context context, float dipValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (dipValue * scale + 0.5f);
-    }
-
-    /**
-     * px 转为 dip
-     */
-    public static int px2dip(Context context, float pxValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (pxValue / scale + 0.5f);
-    }
-
-    /**
-     * 将sp值转换为px值，保证文字大小不变
+     * 通过输入流压缩,获取Bitmap
      *
-     * @param spValue （DisplayMetrics类中属性scaledDensity）
+     * @param context
+     * @param is
+     * @param reqWidth  需要图片显示宽度
+     * @param reqHeight 需要图片显示高度
      * @return
      */
-    public static int sp2px(Context context, float spValue) {
-        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
-        return (int) (spValue * fontScale + 0.5f);
+    public static Bitmap decodeStream(Context context, InputStream is, int reqWidth, int reqHeight) {
+
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        //当这个参数为true的时候,
+        // 意味着你可以在解析时候不申请内存的情况下去获取Bitmap的宽和高
+        //这是调整Bitmap Size一个很重要的参数设置
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeStream(is, null, options);
+        int realHeight = options.outHeight;
+        int realWidth = options.outWidth;
+        int simpleSize = findBestSampleSize(realWidth, realHeight, reqWidth, reqHeight);
+        options.inSampleSize = simpleSize;
+        //当你希望得到Bitmap实例的时候
+        options.inJustDecodeBounds = false;
+        return BitmapFactory.decodeStream(is, null, options);
+
     }
 
     /**
-     * 将px值转换为sp值，保证文字大小不变
+     * 解析了一次一张某分辨率的图片，并且设置在`options.inBitmap`中，
+     * 然后分别decode了同一张图片，并且传入了相同的`options`。
+     * 最终只占用一份第一次解析`Bitmap`的内存。
      *
-     * @param pxValue
-     * @param pxValue （DisplayMetrics类中属性scaledDensity）
+     * @param context
+     * @param resourceId
+     * @param reqWidth
+     * @param reqHeight
      * @return
      */
-    public static int px2sp(Context context, float pxValue) {
-        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
-        return (int) (pxValue / fontScale + 0.5f);
+    public static BitmapFactory.Options decodeSameBitmap(Context context, int resourceId, int reqWidth, int reqHeight) {
+
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        //inBitmap只有当inMutable为true的时候是可用的。
+        options.inMutable = true;
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeResource(context.getResources(), resourceId, options);
+        //压缩bitmap,防止OOM
+        options.inSampleSize = findBestSampleSize(options.outWidth, options.outHeight,
+                reqWidth, reqHeight);
+        options.inJustDecodeBounds = false;
+        Bitmap reusedBitmap = BitmapFactory.decodeResource(context.getResources(), resourceId, options);
+        options.inBitmap = reusedBitmap;
+        return options;
+
     }
+
 
 }
