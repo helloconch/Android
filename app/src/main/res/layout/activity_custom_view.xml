@@ -38,9 +38,62 @@
 
     <SurfaceView
         android:id="@+id/mySurfaceView"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="10dp"
         android:background="#eeeeee" />
+    <!--SurfaceView-->
 
+    <!--Scroller的使用实现一个侧滑菜单-->
+
+
+    <com.android.testing.widget.MyScroolView
+        android:id="@+id/main_area"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:background="#0f0">
+
+        <TextView
+            android:id="@+id/main_text"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:gravity="center"
+            android:text="left" />
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="#f0f"
+            android:gravity="center"
+            android:text="right" />
+    </com.android.testing.widget.MyScroolView>
+
+
+    <Button
+        android:id="@+id/scroolBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="scroolby" />
+
+    <Button
+        android:id="@+id/scroolTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="scroolTo" />
+
+    <Button
+        android:id="@+id/useScroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="使用Scroll" />
+
+    <!--Scroller的使用实现一个侧滑菜单-->
+
+    <Button
+        android:id="@+id/slide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="侧滑菜单" />
 </LinearLayout>

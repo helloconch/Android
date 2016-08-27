@@ -13,8 +13,11 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.widget.TextView;
 
 import com.android.testing.R;
+import com.android.testing.widget.MyScroolView;
+import com.android.testing.widget.SlideMenu;
 import com.android.testing.widget.stepview.HorizontalStepView;
 
 import java.util.ArrayList;
@@ -22,6 +25,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by cheyanxu on 16/8/3.
@@ -32,16 +36,23 @@ public class CustomViewsActivity extends AppCompatActivity {
     HorizontalStepView horizontalStepView;
     @BindView(R.id.mySurfaceView)
     SurfaceView mySurfaceView;
+    @BindView(R.id.main_area)
+    MyScroolView mainArea;
+    @BindView(R.id.main_text)
+    TextView mainText;
+    @BindView(R.id.slideMenu)
+    SlideMenu slideMenu;
 
 
     // SurfaceHolder负责维护SurfaceView上绘制的内容
     private SurfaceHolder holder;
     private Paint paint;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_custom_view);
+        setContentView(R.layout.activity_custom_main);
         ButterKnife.bind(this);
         horizontalStepView = (HorizontalStepView) findViewById(R.id.horizontalStepView);
         List<String> datas = new ArrayList<>();
@@ -54,14 +65,15 @@ public class CustomViewsActivity extends AppCompatActivity {
         datas.add("周日");
         horizontalStepView.setStepViewTexts(datas).setStepsViewIndicatorComplectingPosition(3);
         initSurfaceView();
+
     }
 
     /**
      * Canvas lockCanvas():锁定整个SurfaceView对象，获取该Surface上的Canvas
-     Canvas lockCanvas(Rect dirty):锁定SurfaceView上Rect划分的区域，获取该Surface上的Canvas
-     unlockCanvasAndPost(canvas):释放绘图、提交所绘制的图形，需要注意，
-     当调用SurfaceHolder上的unlockCanvasAndPost方法之后，该方法之前所绘制的图形还处于缓冲之中，
-     下一次lockCanvas()方法锁定的区域可能会“遮挡”它
+     * Canvas lockCanvas(Rect dirty):锁定SurfaceView上Rect划分的区域，获取该Surface上的Canvas
+     * unlockCanvasAndPost(canvas):释放绘图、提交所绘制的图形，需要注意，
+     * 当调用SurfaceHolder上的unlockCanvasAndPost方法之后，该方法之前所绘制的图形还处于缓冲之中，
+     * 下一次lockCanvas()方法锁定的区域可能会“遮挡”它
      */
     void initSurfaceView() {
         paint = new Paint();
@@ -147,4 +159,36 @@ public class CustomViewsActivity extends AppCompatActivity {
 
 
     }
+
+    /**
+     * <br/>
+     * scroolBy是基于view子内容当前位置进行增量式的相对滑动
+     * <br/>
+     * scroolTo则是基于view子内容的绝对坐标进行滑动
+     * 需要强调的是，滑动的是view的子内容而不是view本身，不管我们如何调用，调用者mainArea是没有任何变化的。
+     * getScrollX()返回的滑动距离是view的左边缘的X轴减去该view子内容左边缘的X轴。
+     *
+     * @param view
+     */
+    @OnClick({R.id.scroolBy, R.id.scroolTo, R.id.useScroll, R.id.slide})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.scroolBy:
+                //正值向左移动 负值向右，但是x轴的正方向指向右边
+                mainArea.scrollBy(100, 0);
+                break;
+            case R.id.scroolTo:
+                mainArea.scrollTo(0, 0);
+                break;
+
+            case R.id.useScroll:
+                mainArea.smoothScroll(100, 0);
+                break;
+            case R.id.slide:
+                slideMenu.switchMenu();
+                break;
+        }
+    }
+
+
 }
