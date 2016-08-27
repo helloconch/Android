@@ -36,11 +36,9 @@
         <activity android:name="com.android.views.CustomViewsActivity" />
         <activity android:name="com.android.launchmode.LaunchA" />
         <activity android:name="com.android.launchmode.LaunchB" />
-        <activity android:name="com.android.btimap.BitmapActivity" /><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+        <activity android:name="com.android.btimap.BitmapActivity" />
+        <activity android:name="com.android.lazy.LazyFragmentActivity" />
+        <activity android:name="com.android.views.CoordinatorActivity" />
     </application>
 
 </manifest>

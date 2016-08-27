@@ -9,11 +9,13 @@ import com.android.btimap.BitmapActivity;
 import com.android.calltele.CallTelActivity;
 import com.android.https.HttpsActivity;
 import com.android.launchmode.LaunchA;
+import com.android.lazy.LazyFragmentActivity;
 import com.android.loader.LoaderActivity;
 import com.android.login.LoginActivity;
 import com.android.mvp.MVPActivity;
 import com.android.navigator.NavigatorActivity;
 import com.android.network.MarsActivity;
+import com.android.views.CoordinatorActivity;
 import com.android.views.CustomViewsActivity;
 import com.android.webview.MovieActivity;
 import com.android.webview.WebActivity;
@@ -33,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     @OnClick({R.id.btnMVP, R.id.btnHttps, R.id.btnNavigator, R.id.btnNetWork, R.id.loader, R.id.login,
-            R.id.calltel, R.id.webView, R.id.movieWebView, R.id.customViews, R.id.launchMode, R.id.bitmap})
+            R.id.calltel, R.id.webView, R.id.movieWebView, R.id.customViews, R.id.launchMode, R.id.bitmap,
+            R.id.lazyLoadFragment, R.id.coordinatorLayout})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnMVP:
@@ -71,6 +74,13 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.bitmap:
                 startActivity(new Intent(MainActivity.this, BitmapActivity.class));
+                break;
+            case R.id.lazyLoadFragment:
+                startActivity(new Intent(MainActivity.this, LazyFragmentActivity.class));
+                break;
+
+            case R.id.coordinatorLayout:
+                startActivity(new Intent(MainActivity.this, CoordinatorActivity.class));
                 break;
         }
     }

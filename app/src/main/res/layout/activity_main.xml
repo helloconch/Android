@@ -91,6 +91,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Bitmap使用" />
+
+            <Button
+                android:id="@+id/lazyLoadFragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fragment懒加载" />
+
+            <Button
+                android:id="@+id/coordinatorLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CoordinatorLayout使用" />
         </LinearLayout>
 
     </ScrollView>
