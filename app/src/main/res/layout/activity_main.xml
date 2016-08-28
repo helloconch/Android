@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,101 +11,134 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.android.testing.MainActivity">
 
-    <ScrollView
+
+    <com.google.android.flexbox.FlexboxLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none">
+        android:layout_height="wrap_content"
+        app:flexWrap="wrap"
+        app:justifyContent="center">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/btnMVP"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_margin="8dp"
+            android:text="mvp" />
 
-            <Button
-                android:id="@+id/btnMVP"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="mvp" />
+        <Button
+            android:id="@+id/btnHttps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="https" />
 
-            <Button
-                android:id="@+id/btnHttps"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="https" />
+        <Button
+            android:id="@+id/btnNavigator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="navigator" />
 
-            <Button
-                android:id="@+id/btnNavigator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="navigator" />
+        <Button
+            android:id="@+id/btnNetWork"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="network" />
 
-            <Button
-                android:id="@+id/btnNetWork"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="network" />
+        <Button
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="login" />
 
-            <Button
-                android:id="@+id/login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="login" />
+        <Button
+            android:id="@+id/loader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="loader" />
 
-            <Button
-                android:id="@+id/loader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="loader" />
+        <Button
+            android:id="@+id/calltel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="calltel" />
 
-            <Button
-                android:id="@+id/calltel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="calltel" />
+        <Button
+            android:id="@+id/webView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="webview" />
 
-            <Button
-                android:id="@+id/webView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="webview" />
+        <Button
+            android:id="@+id/movieWebView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="movie webview" />
 
-            <Button
-                android:id="@+id/movieWebView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="movie webview" />
+        <Button
+            android:id="@+id/customViews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="custom views" />
 
-            <Button
-                android:id="@+id/customViews"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="custom views" />
+        <Button
+            android:id="@+id/launchMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="启动模式和生命周期" />
 
-            <Button
-                android:id="@+id/launchMode"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="启动模式和生命周期" />
+        <Button
+            android:id="@+id/bitmap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Bitmap使用" />
 
-            <Button
-                android:id="@+id/bitmap"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bitmap使用" />
+        <Button
+            android:id="@+id/lazyLoadFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Fragment懒加载" />
 
-            <Button
-                android:id="@+id/lazyLoadFragment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fragment懒加载" />
+        <Button
+            android:id="@+id/coordinatorLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="CoordinatorLayout使用" />
 
-            <Button
-                android:id="@+id/coordinatorLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="CoordinatorLayout使用" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/fresco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="fresco" />
 
-    </ScrollView>
+    </com.google.android.flexbox.FlexboxLayout>
+
+
+    <!--<ScrollView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:scrollbars="none">-->
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical">-->
+
+    <!---->
+    <!--</LinearLayout>-->
+
+    <!--</ScrollView>-->
 
 </LinearLayout>

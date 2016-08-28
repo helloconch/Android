@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.android.testing.R;
+import com.android.testing.widget.MyBall;
 import com.android.testing.widget.MyScroolView;
 import com.android.testing.widget.SlideMenu;
 import com.android.testing.widget.stepview.HorizontalStepView;
@@ -42,6 +43,8 @@ public class CustomViewsActivity extends AppCompatActivity {
     TextView mainText;
     @BindView(R.id.slideMenu)
     SlideMenu slideMenu;
+    @BindView(R.id.myBall)
+    MyBall myBall;
 
 
     // SurfaceHolder负责维护SurfaceView上绘制的内容
@@ -170,7 +173,8 @@ public class CustomViewsActivity extends AppCompatActivity {
      *
      * @param view
      */
-    @OnClick({R.id.scroolBy, R.id.scroolTo, R.id.useScroll, R.id.slide})
+    @OnClick({R.id.scroolBy, R.id.scroolTo, R.id.useScroll, R.id.slide,
+            R.id.ballMove, R.id.ballMove1, R.id.ballMove2})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.scroolBy:
@@ -186,6 +190,15 @@ public class CustomViewsActivity extends AppCompatActivity {
                 break;
             case R.id.slide:
                 slideMenu.switchMenu();
+                break;
+            case R.id.ballMove:
+                myBall.start();
+                break;
+            case R.id.ballMove1:
+                myBall.start1();
+                break;
+            case R.id.ballMove2:
+                myBall.start2();
                 break;
         }
     }

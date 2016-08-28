@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.android.btimap.BitmapActivity;
 import com.android.calltele.CallTelActivity;
+import com.android.fresco.FrescoActivity;
 import com.android.https.HttpsActivity;
 import com.android.launchmode.LaunchA;
 import com.android.lazy.LazyFragmentActivity;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick({R.id.btnMVP, R.id.btnHttps, R.id.btnNavigator, R.id.btnNetWork, R.id.loader, R.id.login,
             R.id.calltel, R.id.webView, R.id.movieWebView, R.id.customViews, R.id.launchMode, R.id.bitmap,
-            R.id.lazyLoadFragment, R.id.coordinatorLayout})
+            R.id.lazyLoadFragment, R.id.coordinatorLayout, R.id.fresco})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnMVP:
@@ -81,6 +82,9 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.coordinatorLayout:
                 startActivity(new Intent(MainActivity.this, CoordinatorActivity.class));
+                break;
+            case R.id.fresco:
+                startActivity(new Intent(MainActivity.this, FrescoActivity.class));
                 break;
         }
     }

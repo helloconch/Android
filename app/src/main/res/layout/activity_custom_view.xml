@@ -1,99 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#000"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <com.android.testing.widget.stepview.HorizontalStepView
-        android:id="@+id/horizontalStepView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp" />
+        android:layout_height="match_parent"
+        android:background="#000"
+        android:orientation="vertical">
+
+        <com.android.testing.widget.stepview.HorizontalStepView
+            android:id="@+id/horizontalStepView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" />
 
 
-    <!--自定义进度条-->
+        <!--自定义进度条-->
 
-    <!--<com.android.testing.widget.progressbar.IndicatorProgressBar-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginTop="10dp"-->
-    <!--android:max="100"-->
-    <!--android:progress="40"-->
-    <!--android:progressDrawable="@drawable/my_progressbar"-->
-    <!--android:secondaryProgress="70"-->
-    <!--app:textColor="#fff" />-->
-    <com.android.testing.widget.progressbar.IndicatorProgressBar
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:layout_marginTop="10dp"
-        android:max="100"
-        android:progress="40"
-        android:progressDrawable="@drawable/my_progressbar"
-        app:textColor="#fff" />
-
-
-    <!--SurfaceView-->
-
-    <SurfaceView
-        android:id="@+id/mySurfaceView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="10dp"
-        android:background="#eeeeee" />
-    <!--SurfaceView-->
-
-    <!--Scroller的使用实现一个侧滑菜单-->
+        <!--<com.android.testing.widget.progressbar.IndicatorProgressBar-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:max="100"-->
+        <!--android:progress="40"-->
+        <!--android:progressDrawable="@drawable/my_progressbar"-->
+        <!--android:secondaryProgress="70"-->
+        <!--app:textColor="#fff" />-->
+        <com.android.testing.widget.progressbar.IndicatorProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:layout_marginTop="10dp"
+            android:max="100"
+            android:progress="40"
+            android:progressDrawable="@drawable/my_progressbar"
+            app:textColor="#fff" />
 
 
-    <com.android.testing.widget.MyScroolView
-        android:id="@+id/main_area"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
-        android:background="#0f0">
+        <!--SurfaceView-->
 
-        <TextView
-            android:id="@+id/main_text"
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:background="#ffffff"
-            android:gravity="center"
-            android:text="left" />
+        <SurfaceView
+            android:id="@+id/mySurfaceView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="#eeeeee" />
+        <!--SurfaceView-->
 
-        <TextView
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:background="#f0f"
-            android:gravity="center"
-            android:text="right" />
-    </com.android.testing.widget.MyScroolView>
+        <!--Scroller的使用实现一个侧滑菜单-->
 
 
-    <Button
-        android:id="@+id/scroolBy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="scroolby" />
+        <com.android.testing.widget.MyScroolView
+            android:id="@+id/main_area"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:background="#0f0">
 
-    <Button
-        android:id="@+id/scroolTo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="scroolTo" />
+            <TextView
+                android:id="@+id/main_text"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="left" />
 
-    <Button
-        android:id="@+id/useScroll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="使用Scroll" />
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="#f0f"
+                android:gravity="center"
+                android:text="right" />
+        </com.android.testing.widget.MyScroolView>
 
-    <!--Scroller的使用实现一个侧滑菜单-->
 
-    <Button
-        android:id="@+id/slide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="侧滑菜单" />
-</LinearLayout>
+        <Button
+            android:id="@+id/scroolBy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="scroolby" />
+
+        <Button
+            android:id="@+id/scroolTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="scroolTo" />
+
+        <Button
+            android:id="@+id/useScroll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="使用Scroll" />
+
+        <!--Scroller的使用实现一个侧滑菜单-->
+
+        <Button
+            android:id="@+id/slide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="侧滑菜单" />
+
+        <Button
+            android:id="@+id/ballMove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ball Move" />
+
+        <Button
+            android:id="@+id/ballMove1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ball Move1" />
+        <Button
+            android:id="@+id/ballMove2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ball Move2" />
+
+        <com.android.testing.widget.MyBall
+            android:id="@+id/myBall"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:background="#fff" />
+    </LinearLayout>
+
+</ScrollView>

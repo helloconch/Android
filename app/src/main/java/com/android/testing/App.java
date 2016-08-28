@@ -6,6 +6,7 @@ import android.support.multidex.MultiDex;
 
 import com.android.app.lib.cache.CacheManager;
 import com.android.testing.exception.CrashHandler;
+import com.android.testing.utils.FrescoUtils;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
@@ -33,6 +34,7 @@ public class App extends Application {
         super.onCreate();
         mInstance = this;
         requestQueue = Volley.newRequestQueue(this);
+        FrescoUtils.init(this, 30);
         CrashHandler crashHandler = CrashHandler.getsInstance();
         crashHandler.init(this);
     }

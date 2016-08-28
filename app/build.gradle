@@ -31,6 +31,18 @@ dependencies {
     //multidex依赖
     compile 'com.android.support:multidex:1.0.0'
     compile project(':volley')
+    //fresco
+    compile 'com.facebook.fresco:fresco:0.13.0'
+    // If your app supports Android versions before Ice Cream Sandwich (API level 14)
+    compile 'com.facebook.fresco:animated-base-support:0.13.0'
+    // For animated GIF support
+    compile 'com.facebook.fresco:animated-gif:0.13.0'
+    // For WebP support, including animated WebP
+    compile 'com.facebook.fresco:animated-webp:0.13.0'
+    compile 'com.facebook.fresco:webpsupport:0.13.0'
+    //flexbox
+    compile 'com.google.android:flexbox:0.2.3'
+
     //retrofit
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
