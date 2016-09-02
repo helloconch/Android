@@ -123,6 +123,20 @@
             android:layout_margin="8dp"
             android:text="fresco" />
 
+        <Button
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="TV" />
+
+        <Button
+            android:id="@+id/threeD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="3D" />
+
     </com.google.android.flexbox.FlexboxLayout>
 
 
