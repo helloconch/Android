@@ -137,6 +137,19 @@
             android:layout_margin="8dp"
             android:text="3D" />
 
+        <Button
+            android:id="@+id/softinput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="软键盘/屏幕分辨率" />
+
+        <Button
+            android:id="@+id/countTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="倒计时" />
     </com.google.android.flexbox.FlexboxLayout>
 
 

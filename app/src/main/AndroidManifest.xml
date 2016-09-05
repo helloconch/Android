@@ -36,14 +36,20 @@
         <activity android:name="com.android.views.CustomViewsActivity" />
         <activity android:name="com.android.launchmode.LaunchA" />
         <activity android:name="com.android.launchmode.LaunchB" />
-        <activity android:name="com.android.btimap.BitmapActivity" />
+        <activity android:name="com.android.bitmap.BitmapActivity" />
         <activity android:name="com.android.lazy.LazyFragmentActivity" />
         <activity android:name="com.android.views.CoordinatorActivity" />
         <activity android:name="com.android.fresco.FrescoActivity" />
         <activity android:name="com.android.tv.FocusActivity" />
 
-        <activity android:name="com.android.tv.ThreeDAcitvity"/>
+        <activity android:name="com.android.tv.ThreeDAcitvity" />
 
+        <activity
+            android:name="com.android.softinput.SoftInputMethodActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+
+        <activity android:name="com.android.time.CountTimeActivity" />
     </application>
 
 </manifest>

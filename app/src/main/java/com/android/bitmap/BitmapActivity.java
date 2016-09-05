@@ -1,4 +1,4 @@
-package com.android.btimap;
+package com.android.bitmap;
 
 import android.graphics.BitmapFactory;
 import android.os.Bundle;

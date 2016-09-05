@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.android.btimap.BitmapActivity;
+import com.android.bitmap.BitmapActivity;
 import com.android.calltele.CallTelActivity;
 import com.android.fresco.FrescoActivity;
 import com.android.https.HttpsActivity;
@@ -16,6 +16,8 @@ import com.android.login.LoginActivity;
 import com.android.mvp.MVPActivity;
 import com.android.navigator.NavigatorActivity;
 import com.android.network.MarsActivity;
+import com.android.softinput.SoftInputMethodActivity;
+import com.android.time.CountTimeActivity;
 import com.android.tv.FocusActivity;
 import com.android.tv.ThreeDAcitvity;
 import com.android.views.CoordinatorActivity;
@@ -39,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick({R.id.btnMVP, R.id.btnHttps, R.id.btnNavigator, R.id.btnNetWork, R.id.loader, R.id.login,
             R.id.calltel, R.id.webView, R.id.movieWebView, R.id.customViews, R.id.launchMode, R.id.bitmap,
-            R.id.lazyLoadFragment, R.id.coordinatorLayout, R.id.fresco, R.id.tv, R.id.threeD})
+            R.id.lazyLoadFragment, R.id.coordinatorLayout, R.id.fresco, R.id.tv, R.id.threeD, R.id.softinput
+            , R.id.countTime})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnMVP:
@@ -94,6 +97,15 @@ public class MainActivity extends AppCompatActivity {
             case R.id.threeD:
                 startActivity(new Intent(MainActivity.this, ThreeDAcitvity.class));
                 break;
+            case R.id.softinput:
+                startActivity(new Intent(MainActivity.this, SoftInputMethodActivity.class));
+                break;
+
+            case R.id.countTime:
+
+                startActivity(new Intent(MainActivity.this, CountTimeActivity.class));
+                break;
+
         }
     }
 }
