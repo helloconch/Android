@@ -20,6 +20,7 @@ import com.android.softinput.SoftInputMethodActivity;
 import com.android.time.CountTimeActivity;
 import com.android.tv.FocusActivity;
 import com.android.tv.ThreeDAcitvity;
+import com.android.views.BottomSheetBehaviorActivity;
 import com.android.views.CoordinatorActivity;
 import com.android.views.CustomViewsActivity;
 import com.android.webview.MovieActivity;
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     @OnClick({R.id.btnMVP, R.id.btnHttps, R.id.btnNavigator, R.id.btnNetWork, R.id.loader, R.id.login,
             R.id.calltel, R.id.webView, R.id.movieWebView, R.id.customViews, R.id.launchMode, R.id.bitmap,
             R.id.lazyLoadFragment, R.id.coordinatorLayout, R.id.fresco, R.id.tv, R.id.threeD, R.id.softinput
-            , R.id.countTime})
+            , R.id.countTime, R.id.bottomSheetBehavior})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnMVP:
@@ -87,6 +88,10 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.coordinatorLayout:
                 startActivity(new Intent(MainActivity.this, CoordinatorActivity.class));
+                break;
+
+            case R.id.bottomSheetBehavior:
+                startActivity(new Intent(MainActivity.this, BottomSheetBehaviorActivity.class));
                 break;
             case R.id.fresco:
                 startActivity(new Intent(MainActivity.this, FrescoActivity.class));

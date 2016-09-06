@@ -117,6 +117,13 @@
             android:text="CoordinatorLayout使用" />
 
         <Button
+            android:id="@+id/bottomSheetBehavior"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="BottomSheetBehavior使用" />
+
+        <Button
             android:id="@+id/fresco"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
