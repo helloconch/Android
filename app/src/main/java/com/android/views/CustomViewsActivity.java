@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.android.testing.R;
 import com.android.testing.widget.MyBall;
+import com.android.testing.widget.MyLineView;
 import com.android.testing.widget.MyScroolView;
 import com.android.testing.widget.SlideMenu;
 import com.android.testing.widget.stepview.HorizontalStepView;
@@ -45,6 +46,8 @@ public class CustomViewsActivity extends AppCompatActivity {
     SlideMenu slideMenu;
     @BindView(R.id.myBall)
     MyBall myBall;
+    @BindView(R.id.myLineView)
+    MyLineView myLineView;
 
 
     // SurfaceHolder负责维护SurfaceView上绘制的内容
@@ -68,6 +71,7 @@ public class CustomViewsActivity extends AppCompatActivity {
         datas.add("周日");
         horizontalStepView.setStepViewTexts(datas).setStepsViewIndicatorComplectingPosition(3);
         initSurfaceView();
+        myLineView.startAnimation();
 
     }
 
