@@ -22,4 +22,13 @@ public interface MovieService {
 
     @GET("top250")
     Observable<HttpResult<List<Subject>>> getTopMovieByObservable(@Query("start") int start, @Query("count") int count);
+
+//添加头部信息，进行POST请求
+//    FormBody.Builder builder = new FormBody.Builder();
+//    builder.add("userCode","00000");
+//    FormBody body = builder.build();
+//    Observable<BaseResult<User>> user = userService.getUser(body);
+//    @POST("getuser")
+//    Observable<BaseResult<User>> getUser(@Body RequestBody request);
+
 }
