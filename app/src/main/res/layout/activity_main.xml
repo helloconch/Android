@@ -157,6 +157,13 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:text="倒计时" />
+
+        <Button
+            android:id="@+id/rxRetrofit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Rx+Retrofit" />
     </com.google.android.flexbox.FlexboxLayout>
 
 
