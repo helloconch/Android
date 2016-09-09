@@ -16,6 +16,7 @@ import com.android.login.LoginActivity;
 import com.android.mvp.MVPActivity;
 import com.android.navigator.NavigatorActivity;
 import com.android.network.MarsActivity;
+import com.android.opengl.OpenGLActivity;
 import com.android.rxretrofit.RxRetrofitActivity;
 import com.android.softinput.SoftInputMethodActivity;
 import com.android.time.CountTimeActivity;
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     @OnClick({R.id.btnMVP, R.id.btnHttps, R.id.btnNavigator, R.id.btnNetWork, R.id.loader, R.id.login,
             R.id.calltel, R.id.webView, R.id.movieWebView, R.id.customViews, R.id.launchMode, R.id.bitmap,
             R.id.lazyLoadFragment, R.id.coordinatorLayout, R.id.fresco, R.id.tv, R.id.threeD, R.id.softinput
-            , R.id.countTime, R.id.bottomSheetBehavior, R.id.rxRetrofit})
+            , R.id.countTime, R.id.bottomSheetBehavior, R.id.rxRetrofit, R.id.openGL})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnMVP:
@@ -115,6 +116,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.rxRetrofit:
                 startActivity(new Intent(MainActivity.this, RxRetrofitActivity.class));
 
+                break;
+
+            case R.id.openGL:
+                startActivity(new Intent(MainActivity.this, OpenGLActivity.class));
                 break;
 
         }
