@@ -1,5 +1,6 @@
 package com.android.tv;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -65,8 +66,16 @@ public class FocusActivity extends AppCompatActivity {
             }
         });
 
-
         one.setNextFocusDownId(R.id.three);
+        three.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                System.out.print("");
+
+                return false;
+            }
+        });
     }
 
     private void showLog(String msg) {
@@ -122,6 +131,7 @@ public class FocusActivity extends AppCompatActivity {
             case R.id.four:
                 break;
             case R.id.five:
+                startActivity(new Intent(FocusActivity.this, DemoTvActivity.class));
                 break;
         }
     }

@@ -18,11 +18,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
-            <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
 
-            <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
         <activity android:name="com.android.mvp.MVPActivity" />
         <activity android:name="com.android.https.HttpsActivity" />
@@ -41,7 +41,8 @@
         <activity android:name="com.android.views.CoordinatorActivity" />
         <activity android:name="com.android.views.BottomSheetBehaviorActivity" />
         <activity android:name="com.android.fresco.FrescoActivity" />
-        <activity android:name="com.android.tv.FocusActivity" />
+        <activity android:name="com.android.tv.FocusActivity">
+        </activity>
 
         <activity android:name="com.android.tv.ThreeDAcitvity" />
 
@@ -57,11 +58,16 @@
         </activity>
 
         <activity android:name="com.android.opengl.OpenGLActivity">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
 
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+        </activity>
+
+        <activity android:name="com.android.tv.DemoTvActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
