@@ -157,6 +157,9 @@ public class SlideTabView extends HorizontalScrollView {
             }
             tab.setText(items[i]);
             tab.setGravity(Gravity.CENTER);
+            tab.setFocusableInTouchMode(true);
+            tab.setFocusable(true);
+            tab.requestFocus();
             tab.setSingleLine();
             addTab(i, tab);
         }

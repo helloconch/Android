@@ -1,18 +1,21 @@
 package com.android.tv;
 
-import android.animation.ValueAnimator;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.android.testing.R;
+
+import java.lang.ref.WeakReference;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,6 +25,8 @@ import butterknife.OnClick;
  * Created by Administrator on 2016/9/12.
  */
 public class FocusAFragment extends Fragment implements View.OnKeyListener, View.OnFocusChangeListener {
+
+    private static final String TAG = FocusAFragment.class.getSimpleName();
     @BindView(R.id.myFocusImage1)
     MyFocusImage myFocusImage1;
     @BindView(R.id.myFocusImage2)
@@ -43,17 +48,21 @@ public class FocusAFragment extends Fragment implements View.OnKeyListener, View
     IChageTabs tabsImpl;
 
     SparseArray<FocusItem> sparseArray = new SparseArray<>();
+    MyHandler myHandler;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof IChageTabs)
             tabsImpl = (IChageTabs) context;
+        myHandler = new MyHandler(this);
+        Log.i(TAG, "onAttach");
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Log.i(TAG, "onCreateView");
         View root = inflater.inflate(R.layout.fragment_focus_a, container, false);
         ButterKnife.bind(this, root);
         return root;
@@ -62,6 +71,7 @@ public class FocusAFragment extends Fragment implements View.OnKeyListener, View
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        Log.i(TAG, "onActivityCreated");
         focusView(myFocusImage1);
         focusView(myFocusImage2);
         focusView(myFocusImage3);
@@ -71,7 +81,7 @@ public class FocusAFragment extends Fragment implements View.OnKeyListener, View
         focusView(myFocusImage7);
         focusView(myFocusImag8);
         focusView(myFocusImag9);
-
+        myHandler.sendEmptyMessageDelayed(0x111, 200);
     }
 
     private void focusView(View view) {
@@ -85,7 +95,8 @@ public class FocusAFragment extends Fragment implements View.OnKeyListener, View
         view.setOnFocusChangeListener(this);
     }
 
-    @OnClick({R.id.myFocusImage1, R.id.myFocusImage2, R.id.myFocusImage3, R.id.myFocusImage4, R.id.myFocusImage5, R.id.myFocusImage6, R.id.myFocusImage7, R.id.myFocusImag8})
+    @OnClick({R.id.myFocusImage1, R.id.myFocusImage2, R.id.myFocusImage3, R.id.myFocusImage4,
+            R.id.myFocusImage5, R.id.myFocusImage6, R.id.myFocusImage7, R.id.myFocusImag8, R.id.myFocusImag9})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.myFocusImage1:
@@ -110,6 +121,9 @@ public class FocusAFragment extends Fragment implements View.OnKeyListener, View
                 System.out.print("");
                 break;
             case R.id.myFocusImag8:
+                System.out.print("");
+                break;
+            case R.id.myFocusImag9:
                 System.out.print("");
                 break;
         }
@@ -188,5 +202,72 @@ public class FocusAFragment extends Fragment implements View.OnKeyListener, View
         void changeTabIndex(int id);
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.i(TAG, "onStart");
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i(TAG, "onResume");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.i(TAG, "onPause");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.i(TAG, "onStop");
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.i(TAG, "onSaveInstanceState");
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        Log.i(TAG, "hidden:" + hidden);
+
+        if (!hidden) {
+            myFocusImage1.requestFocus();
+        }
+    }
+
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        Log.i(TAG, "setUserVisibleHint");
+
+    }
+
+    private static final class MyHandler extends Handler {
+
+        WeakReference<FocusAFragment> weakReference;
+
+        public MyHandler(FocusAFragment focusAFragment) {
+            weakReference = new WeakReference<>(focusAFragment);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case 0x111:
+                    if (weakReference != null) {
+                        weakReference.get().myFocusImage1.requestFocus();
+                    }
+
+                    break;
+            }
+        }
+    }
 }
