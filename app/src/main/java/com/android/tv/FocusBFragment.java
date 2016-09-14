@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.android.testing.R;
+import com.android.testing.widget.navigation.FocusSlideTabView;
 import com.android.testing.widget.navigation.SlideTabView;
 
 import butterknife.BindView;
@@ -23,7 +24,7 @@ public class FocusBFragment extends Fragment {
     private static final String FONT_DIR = "fonts/";
     private static final String DEE_DIR = FONT_DIR + "fontawesome-webfont.ttf";
     @BindView(R.id.slideTabView)
-    SlideTabView slideTabView;
+    FocusSlideTabView slideTabView;
     @BindView(R.id.tv1)
     TextView tv1;
     @BindView(R.id.tv2)
@@ -43,6 +44,7 @@ public class FocusBFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+
         Typeface typeface = Typeface.createFromAsset(getContext().getAssets(), DEE_DIR);
 
         tv1.setTypeface(typeface);
@@ -51,5 +53,7 @@ public class FocusBFragment extends Fragment {
 
         String[] dataS = new String[]{"推荐", "分类", "应用", "我的", "设置"};
         slideTabView.addTextTab(dataS);
+
+        slideTabView.requestFocus();
     }
 }

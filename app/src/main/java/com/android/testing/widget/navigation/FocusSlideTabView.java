@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Parcel;
@@ -19,15 +20,16 @@ import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.testing.R;
 
 import java.util.Locale;
 
 /**
- * 滑动View
+ * 滑动View--TV
  */
-public class SlideTabView extends HorizontalScrollView {
+public class FocusSlideTabView extends HorizontalScrollView {
 
     //默认
     private LinearLayout.LayoutParams defaultTabLayoutParams;
@@ -87,15 +89,15 @@ public class SlideTabView extends HorizontalScrollView {
     private Locale locale;
     private SlideTabItemClickListener slideTabItemClickListener;
 
-    public SlideTabView(Context context) {
+    public FocusSlideTabView(Context context) {
         super(context);
     }
 
-    public SlideTabView(Context context, AttributeSet attrs) {
+    public FocusSlideTabView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public SlideTabView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public FocusSlideTabView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs);
     }
@@ -104,6 +106,15 @@ public class SlideTabView extends HorizontalScrollView {
     private void init(Context context, AttributeSet attrs) {
         setFillViewport(true);
         setWillNotDraw(false);
+        setFocusable(true);
+        setFocusableInTouchMode(true);
+
+
+        //FOCUS_BEFORE_DESCENDANTS ViewGroup本身先对焦点进行处理，如果没有处理则分发给child View进行处理
+        //FOCUS_AFTER_DESCENDANTS 先分发给Child View进行处理，如果所有的Child View都没有处理，则自己再处理
+        //FOCUS_BLOCK_DESCENDANTS ViewGroup本身进行处理，不管是否处理成功，都不会分发给ChildView进行处理
+
+        setDescendantFocusability(FOCUS_BEFORE_DESCENDANTS);
         tabsContainer = new LinearLayout(context);
         tabsContainer.setOrientation(LinearLayout.HORIZONTAL);
         tabsContainer.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
@@ -150,16 +161,49 @@ public class SlideTabView extends HorizontalScrollView {
     public void addTextTab(String[] items) {
         this.itemsTitle = items;
         this.tabCount = this.itemsTitle.length;
+        int baseID = 1000000;
         for (int i = 0; i < items.length; i++) {
+            final int index = i;
             TextView tab = new TextView(getContext());
-            if (i == this.currentPosition) {
-                tab.setTextColor(tabSelectColor);
+            tab.setId(baseID + index);
+            if (index < items.length - 1) {
+                tab.setNextFocusRightId(baseID + (index + 1));
+                if (index != 0) {
+                    tab.setNextFocusLeftId(baseID + (index - 1));
+                }
+            } else {
+                tab.setNextFocusLeftId(baseID + (index - 1));
             }
+
+            tab.setOnFocusChangeListener(new OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    if (hasFocus)
+                        setSelectPos(index);
+
+//                    Toast.makeText(getContext(), "index:" + index, Toast.LENGTH_LONG).show();
+                }
+            });
+
+
+            tab.setFocusableInTouchMode(true);
+            tab.setFocusable(true);
             tab.setText(items[i]);
             tab.setGravity(Gravity.CENTER);
             tab.setSingleLine();
             addTab(i, tab);
         }
+    }
+
+    @Override
+    protected void onFocusChanged(boolean gainFocus, int direction, Rect previouslyFocusedRect) {
+
+
+        if (gainFocus) {
+            setSelectPos(currentPosition);
+        }
+
+        super.onFocusChanged(gainFocus, direction, previouslyFocusedRect);
     }
 
     /**
@@ -205,9 +249,9 @@ public class SlideTabView extends HorizontalScrollView {
 
     public void notifyDataSetChanged(final int currentPosition) {
         this.currentPosition = currentPosition;
-        tabsContainer.removeAllViews();
-        addTextTab(this.itemsTitle);
-        updateTabStyles();
+//        tabsContainer.removeAllViews();
+//        addTextTab(this.itemsTitle);
+//        updateTabStyles();
         getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
 
             @SuppressWarnings("deprecation")
@@ -372,4 +416,5 @@ public class SlideTabView extends HorizontalScrollView {
     public void setSlideTabItemClickListener(SlideTabItemClickListener slideTabItemClickListener) {
         this.slideTabItemClickListener = slideTabItemClickListener;
     }
+
 }

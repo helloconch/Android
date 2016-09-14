@@ -51,7 +51,7 @@
         android:background="#654987"
         android:paddingTop="16dp">
 
-        <com.android.testing.widget.navigation.SlideTabView
+        <com.android.testing.widget.navigation.FocusSlideTabView
             android:id="@+id/slideTabView"
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -60,7 +60,7 @@
             app:tabSelectColor="#0f0"
             app:underLineColor="#f00">
 
-        </com.android.testing.widget.navigation.SlideTabView>
+        </com.android.testing.widget.navigation.FocusSlideTabView>
 
     </LinearLayout>
 </LinearLayout>

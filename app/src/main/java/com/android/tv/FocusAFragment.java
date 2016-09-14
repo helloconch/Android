@@ -81,7 +81,8 @@ public class FocusAFragment extends Fragment implements View.OnKeyListener, View
         focusView(myFocusImage7);
         focusView(myFocusImag8);
         focusView(myFocusImag9);
-        myHandler.sendEmptyMessageDelayed(0x111, 200);
+        //默认选中一个
+//        myHandler.sendEmptyMessageDelayed(0x111, 200);
     }
 
     private void focusView(View view) {
