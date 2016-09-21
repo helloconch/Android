@@ -171,22 +171,21 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:text="OpenGL" />
+
+        <Button
+            android:id="@+id/tvFocus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Tv焦点控制" />
+
+        <Button
+            android:id="@+id/property"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="属性动画" />
     </com.google.android.flexbox.FlexboxLayout>
 
-
-    <!--<ScrollView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:scrollbars="none">-->
-
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:orientation="vertical">-->
-
-    <!---->
-    <!--</LinearLayout>-->
-
-    <!--</ScrollView>-->
 
 </LinearLayout>

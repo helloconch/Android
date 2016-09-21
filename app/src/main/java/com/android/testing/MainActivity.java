@@ -20,11 +20,14 @@ import com.android.opengl.OpenGLActivity;
 import com.android.rxretrofit.RxRetrofitActivity;
 import com.android.softinput.SoftInputMethodActivity;
 import com.android.time.CountTimeActivity;
+import com.android.tv.DemoTvActivity;
+import com.android.tv.DemoTvActivity_ViewBinder;
 import com.android.tv.FocusActivity;
 import com.android.tv.ThreeDAcitvity;
 import com.android.views.BottomSheetBehaviorActivity;
 import com.android.views.CoordinatorActivity;
 import com.android.views.CustomViewsActivity;
+import com.android.views.PropertyActivity;
 import com.android.webview.MovieActivity;
 import com.android.webview.WebActivity;
 
@@ -45,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
     @OnClick({R.id.btnMVP, R.id.btnHttps, R.id.btnNavigator, R.id.btnNetWork, R.id.loader, R.id.login,
             R.id.calltel, R.id.webView, R.id.movieWebView, R.id.customViews, R.id.launchMode, R.id.bitmap,
             R.id.lazyLoadFragment, R.id.coordinatorLayout, R.id.fresco, R.id.tv, R.id.threeD, R.id.softinput
-            , R.id.countTime, R.id.bottomSheetBehavior, R.id.rxRetrofit, R.id.openGL})
+            , R.id.countTime, R.id.bottomSheetBehavior, R.id.rxRetrofit, R.id.openGL, R.id.tvFocus
+            , R.id.property})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnMVP:
@@ -120,6 +124,13 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.openGL:
                 startActivity(new Intent(MainActivity.this, OpenGLActivity.class));
+                break;
+            case R.id.tvFocus:
+                startActivity(new Intent(MainActivity.this, DemoTvActivity.class));
+                break;
+
+            case R.id.property:
+                startActivity(new Intent(MainActivity.this, PropertyActivity.class));
                 break;
 
         }

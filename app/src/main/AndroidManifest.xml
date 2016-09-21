@@ -41,8 +41,7 @@
         <activity android:name="com.android.views.CoordinatorActivity" />
         <activity android:name="com.android.views.BottomSheetBehaviorActivity" />
         <activity android:name="com.android.fresco.FrescoActivity" />
-        <activity android:name="com.android.tv.FocusActivity">
-        </activity>
+        <activity android:name="com.android.tv.FocusActivity"></activity>
 
         <activity android:name="com.android.tv.ThreeDAcitvity" />
 
@@ -61,8 +60,9 @@
 
         </activity>
 
-        <activity android:name="com.android.tv.DemoTvActivity">
+        <activity android:name="com.android.tv.DemoTvActivity"></activity>
 
+        <activity android:name="com.android.views.PropertyActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

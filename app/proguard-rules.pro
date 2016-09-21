@@ -17,36 +17,36 @@
 #}
 
 #代码混淆压缩比，在0~7之间
--optimizationpasses 5
+#-optimizationpasses 5
 #混淆时不使用大小写混合，混淆后的类名为小写
--dontusemixedcaseclassnames
+#-dontusemixedcaseclassnames
 #指定不去忽略非公共的库的类
--dontskipnonpubliclibraryclasses
+#-dontskipnonpubliclibraryclasses
 #指定不去忽略非公共的库的类的成员
--dontskipnonpubliclibraryclassmembers
+#-dontskipnonpubliclibraryclassmembers
 #不做预校验,preverify，Android不需要preverify，加快混淆速度
--dontpreverify
+#-dontpreverify
 #verbose，混淆后生成映射文件，包含有类名->混淆后类名的映射关系，使用printmapping指定映射文件的名称
--verbose
--printmapping proguardMapping.txt
+#-verbose
+#-printmapping proguardMapping.txt
 #指定混淆时采用的算法，后面的参数是一个过滤器
 #这个过滤器是谷歌推荐的算法，一般不会变
--optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+#-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
 #保护代码中的Annotation不被混淆
 #这在JSON实体映射时非常重要，比如fastJson
--keepattributes *Annotation*
+#-keepattributes *Annotation*
 #避免混淆泛型
 #这在JSON实体映射时非常重要，比如fastJson
--keepattributes Signature
+#-keepattributes Signature
 #抛出异常时保留代码行号
--keepattributes SourceFile,LineNumberTable
+#-keepattributes SourceFile,LineNumberTable
 
 #保留所有本地native方法不被混淆
--keepclasseswithmembernames  class * {
-    native <methods>;
-}
+#-keepclasseswithmembernames  class * {
+#    native <methods>;
+#}
 
 #保留继承自Activity、Application这些子类
--keep public class * extends android.app.Activity
+#-keep public class * extends android.app.Activity
 
 
