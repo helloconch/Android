@@ -6,7 +6,8 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 
 /**
- * Created by cheyanxu on 16/8/10.
+ * Service使用
+ * http://blog.csdn.net/guolin_blog/article/details/9797169
  */
 public class MyService extends Service {
     @Override

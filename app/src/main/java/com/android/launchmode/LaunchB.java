@@ -1,6 +1,7 @@
 package com.android.launchmode;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -37,6 +38,17 @@ public class LaunchB extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         Log.i(TAG, "onPause");
+    }
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.i(TAG, "onSaveInstanceState");
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState, PersistableBundle persistentState) {
+        super.onRestoreInstanceState(savedInstanceState, persistentState);
+        Log.i(TAG, "onRestoreInstanceState");
     }
 
     @Override

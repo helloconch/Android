@@ -28,7 +28,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by Administrator on 2016/9/2.
+ * 类似效果
+ * http://blog.csdn.net/sinyu890807/article/details/17482089
  */
 public class ThreeDAcitvity extends AppCompatActivity {
     @BindView(R.id.topic)
