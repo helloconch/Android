@@ -180,11 +180,25 @@
             android:text="Tv焦点控制" />
 
         <Button
+            android:id="@+id/tvLib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="TV Lib" />
+
+        <Button
             android:id="@+id/property"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:text="属性动画" />
+
+        <Button
+            android:id="@+id/diff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="DiffUtils" />
     </com.google.android.flexbox.FlexboxLayout>
 
 

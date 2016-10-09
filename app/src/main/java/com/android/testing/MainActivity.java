@@ -16,13 +16,14 @@ import com.android.login.LoginActivity;
 import com.android.mvp.MVPActivity;
 import com.android.navigator.NavigatorActivity;
 import com.android.network.MarsActivity;
+import com.android.newapi.DiffUtilsActivity;
 import com.android.opengl.OpenGLActivity;
 import com.android.rxretrofit.RxRetrofitActivity;
 import com.android.softinput.SoftInputMethodActivity;
 import com.android.time.CountTimeActivity;
 import com.android.tv.DemoTvActivity;
-import com.android.tv.DemoTvActivity_ViewBinder;
 import com.android.tv.FocusActivity;
+import com.android.tv.TVActivity;
 import com.android.tv.ThreeDAcitvity;
 import com.android.views.BottomSheetBehaviorActivity;
 import com.android.views.CoordinatorActivity;
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             R.id.calltel, R.id.webView, R.id.movieWebView, R.id.customViews, R.id.launchMode, R.id.bitmap,
             R.id.lazyLoadFragment, R.id.coordinatorLayout, R.id.fresco, R.id.tv, R.id.threeD, R.id.softinput
             , R.id.countTime, R.id.bottomSheetBehavior, R.id.rxRetrofit, R.id.openGL, R.id.tvFocus
-            , R.id.property})
+            , R.id.property, R.id.tvLib,R.id.diff})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnMVP:
@@ -131,6 +132,13 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.property:
                 startActivity(new Intent(MainActivity.this, PropertyActivity.class));
+                break;
+
+            case R.id.tvLib:
+                startActivity(new Intent(MainActivity.this, TVActivity.class));
+                break;
+            case R.id.diff:
+                startActivity(new Intent(MainActivity.this, DiffUtilsActivity.class));
                 break;
 
         }
