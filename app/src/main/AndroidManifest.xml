@@ -75,6 +75,10 @@
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"></activity>
 
         <activity android:name="com.android.newapi.DiffUtilsActivity">
+
+        </activity>
+
+        <activity android:name="com.android.nestscroll.NestScroolActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -55,4 +55,7 @@ dependencies {
     compile 'com.android.support:design:24.2.0'
     //https://codelabs.developers.google.com/codelabs/constraint-layout/#4
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha2'
+
+
+    compile 'com.zhy:base-adapter:2.0.0'
 }
