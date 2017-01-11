@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <declare-styleable name="PagerSlidingTabStrip">
         <attr name="pstsIndicatorColor" format="color" />
@@ -29,6 +29,13 @@
         <attr name="drawUnderline" format="boolean" />
         <attr name="tabTextColor" format="color" />
         <attr name="tabSelectColor" format="color" />
+    </declare-styleable>
+
+
+    <declare-styleable name="TvRecyclerView_DividerItemDecoration">
+        <attr name="android:divider" tools:ignore="ResourceName" />
+        <attr name="tv_verticalDivider" format="reference" />
+        <attr name="tv_horizontalDivider" format="reference" />
     </declare-styleable>
 
 </resources>

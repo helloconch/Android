@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#123"
+    android:orientation="vertical">
+
+    <com.android.testing.widget.tv.recycleview.ExtRecycleView
+        android:id="@+id/ry_menu_item"
+        android:layout_width="130dp"
+        android:layout_height="500dp"
+        android:layout_gravity="left"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginTop="45dp"
+        android:clipToPadding="false"
+        android:paddingBottom="15dp"
+        android:paddingTop="0dp" />
+
+    <com.android.testing.widget.tv.recycleview.ExtRecycleView
+        android:id="@+id/ry_navigator"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_gravity="left"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginTop="45dp"
+        android:clipToPadding="false"
+        android:paddingBottom="15dp"
+        android:paddingTop="0dp" />
+</LinearLayout>
