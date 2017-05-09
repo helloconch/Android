@@ -1,7 +1,9 @@
 package com.android.testing;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.os.Bundle;
 import android.support.multidex.MultiDex;
 
 import com.android.app.lib.cache.CacheManager;
@@ -14,7 +16,7 @@ import com.android.volley.toolbox.Volley;
 /**
  * Created by cheyanxu on 16/7/25.
  */
-public class App extends Application {
+public class App extends Application implements Application.ActivityLifecycleCallbacks {
 
     public static final String TAG = App.class.getName();
     private static App mInstance;
@@ -27,6 +29,7 @@ public class App extends Application {
         //在代码中加入multidex功能
         MultiDex.install(this);
         CacheManager.getInstance().initCacheDir();
+        registerActivityLifecycleCallbacks(this);
     }
 
     @Override
@@ -54,5 +57,41 @@ public class App extends Application {
 
     public void cancel() {
         getRequestQueue().cancelAll(TAG);
+    }
+
+
+    @Override
+    public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+
+    }
+
+    @Override
+    public void onActivityStarted(Activity activity) {
+
+    }
+
+    @Override
+    public void onActivityResumed(Activity activity) {
+
+    }
+
+    @Override
+    public void onActivityPaused(Activity activity) {
+
+    }
+
+    @Override
+    public void onActivityStopped(Activity activity) {
+
+    }
+
+    @Override
+    public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+
+    }
+
+    @Override
+    public void onActivityDestroyed(Activity activity) {
+
     }
 }
